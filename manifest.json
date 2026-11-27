@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "dealenx.uptimekit-status",
+  "name": "UptimeKit status",
+  "version": "1.0.0",
+  "author": "dealenx",
+  "license": "MIT",
+  "description": "Your UptimeKit status page in the bar: components, incidents and maintenance read from the public summary.json, with a details panel and a settings screen.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "UptimeKit status",
+    "description": "Status-page summary with incidents, maintenance, and a per-component breakdown.",
+    "category": "System",
+    "allowMultiple": true,
+    "defaultSection": "right",
+    "defaults": {
+      "baseUrl": "",
+      "slug": "",
+      "intervalSeconds": 30,
+      "openUrlOnRightClick": true,
+      "labelMode": "ratio",
+      "labelFontPercent": 100
+    },
+    "schema": [
+      {
+        "key": "baseUrl",
+        "type": "string",
+        "label": "Status page base URL",
+        "description": "For example https://status.example.com. Leave empty to stop polling.",
+        "defaultValue": ""
+      },
+      {
+        "key": "slug",
+        "type": "string",
+        "label": "Status page slug",
+        "description": "The /<slug> part of the status page URL. Leave empty for the domain root.",
+        "defaultValue": ""
+      },
+      {
+        "key": "intervalSeconds",
+        "type": "integer",
+        "label": "Refresh interval",
+        "description": "How often summary.json is fetched, in seconds.",
+        "min": 10,
+        "max": 3600,
+        "step": 10,
+        "defaultValue": 30
+      },
+      {
+        "key": "openUrlOnRightClick",
+        "type": "boolean",
+        "label": "Open the page on right click",
+        "description": "Right clicking the bar widget opens the status page in the browser.",
+        "defaultValue": true
+      },
+      {
+        "key": "labelMode",
+        "type": "string",
+        "label": "Bar label",
+        "description": "What the bar shows beside the status glyph: up/total, a percentage, the up count alone, or nothing (glyph only).",
+        "defaultValue": "ratio"
+      },
+      {
+        "key": "labelFontPercent",
+        "type": "integer",
+        "label": "Label size",
+        "description": "Bar label size as a percentage of the bar's own label size.",
+        "min": 60,
+        "max": 140,
+        "step": 5,
+        "defaultValue": 100
+      }
+    ]
+  }
+}
